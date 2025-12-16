@@ -5,8 +5,11 @@ A modern, single-page CV website generator that transforms your career data into
 ## Preview
 
 Here are some screenshots of the application in action:
+
 ![About Section (Light)](screenshots/light-about.png)
+
 ![Contact Section (Light)](screenshots/light-contact.png)
+
 ![About Section (Dark)](screenshots/dark-about.png)
 
 ## Features
