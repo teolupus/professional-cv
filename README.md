@@ -1,14 +1,73 @@
 # Professional CV
 
-A modern, single-page CV website generator that transforms your career data into a beautiful, responsive HTML page. Perfect for professionals who want a clean, customisable online presence without using social media platforms, or the complexity of CMS platforms.
+Tired of using word editors or complex CMS platforms to manage your CV? Looking for a clean, professional online presence without relying on social media profiles?
+
+So was I! This led me to write this simple Professional CV single-page app, a zero-dependency CV website generator that transforms career data into a beautiful, fully responsive HTML page.
 
 ## Preview
 
-Here are some screenshots of the application in action:
-
 ![About Section (Light)](screenshots/light-about.png)
 
+```yaml
+  intro:
+    greeting: "Hello! I'm Riley"
+    text: "I am a passionate software engineer dedicated to building scalable cloud infrastructure and intelligent AI agents. I thrive in environments where clean code meets complex architectural challenges.\n\nWith a background in backend development and a recent pivot into Generative AI, I help companies modernize their tech stacks."
+    highlight_list:
+      - icon: "code"
+        header: "Engineering"
+        text: "Writing clean, efficient, and testable Python code. Specializing in FastAPI, Django, and asynchronous programming patterns."
+```
+
+![Experience Section (Light)](screenshots/light-experience.png)
+
+```yaml
+work:
+  - name: "Nebula AI Solutions"
+    position: "Senior Python Engineer"
+    startDate: "2023-01"
+    endDate: "Present"
+    logo: "images/blissful_living_logo.png"
+    logoText: "NA"
+    summary: "Leading the backend team in developing autonomous AI agents for enterprise data analysis."
+    highlights:
+      - "Architected a RAG (Retrieval-Augmented Generation) pipeline using LangChain and Pinecone, reducing data retrieval latency by 40%."
+      - "Mentored 3 junior developers in Python best practices and TDD (Test Driven Development)."
+      - "Implemented a microservices architecture using FastAPI and gRPC to decouple legacy monolithic systems."
+    expertise:
+      - "Generative AI"
+      - "System Design"
+    skills:
+      - "Python"
+      - "FastAPI"
+      - "OpenAI API"
+```
+
 ![Contact Section (Light)](screenshots/light-contact.png)
+
+```yaml
+  contact:
+    - icon: "fas fa-map-marker-alt"
+      heading: "Location"
+      content: "San Francisco, California"
+      type: "text"
+    - icon: "fas fa-phone"
+      heading: "Phone"
+      content: "+1 (555) 012-3456"
+      link: "tel:+15550123456"
+      type: "link"
+    - icon: "fab fa-linkedin-in"
+      heading: "LinkedIn"
+      content: "Connect on LinkedIn"
+      link: "https://www.linkedin.com/in/riley-rhodes-demo/"
+      type: "link"
+      social: true
+    - icon: "fab fa-x-twitter"
+      heading: "X (Twitter)"
+      content: "Follow Me"
+      link: "https://x.com/rileycodes_demo"
+      type: "link"
+      social: true
+```
 
 ![About Section (Dark)](screenshots/dark-about.png)
 
