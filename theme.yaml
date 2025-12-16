@@ -1,0 +1,92 @@
+# Theme Configuration for CV Website
+
+light:
+  # Primary colors
+  primary_color: "#3a6b72"
+  primary_hover: "#3a6b72"
+
+  # Text colors
+  text_primary: "#212529"
+  text_secondary: "#575757"
+
+  # Background colors
+  bg_primary: "#ffffff"
+  bg_secondary: "#f8f9fa"
+  bg_tertiary: "#e9ecef"
+
+  # Border and shadow
+  border_color: "rgba(24, 176, 162, 0.15)"
+  card_shadow: "0 2px 4px rgba(0, 0, 0, 0.08)"
+  sidebar_shadow: "2px 0 10px rgba(0, 0, 0, 0.1)"
+
+  # Form focus
+  focus_ring: "0 0 0 3px rgba(24, 176, 162, 0.2)"
+
+  # Expertise and Skills pill backgrounds
+  expertise_bg: "#e9ecef"
+  skill_bg: "#e9ecef"
+
+dark:
+  # Primary colors (same as light for consistency)
+  primary_color: "#3a6b72"
+  primary_hover: "#3a6b72"
+
+  # Text colors - Lighter for dark backgrounds
+  text_primary: "#e9ecef"
+  text_secondary: "#cdcdcd"
+
+  # Background colors - Dark theme from reference
+  bg_primary: "#0e1015"
+  bg_secondary: "#191f27"
+  bg_tertiary: "#1e242c"
+
+  # Border and shadow
+  border_color: "rgba(24, 176, 162, 0.15)"
+  card_shadow: "0 2px 8px rgba(0, 0, 0, 0.4)"
+  sidebar_shadow: "2px 0 10px rgba(0, 0, 0, 0.1)"
+
+  # Form focus
+  focus_ring: "0 0 0 3px rgba(24, 176, 162, 0.2)"
+
+  # Expertise and Skills pill backgrounds
+  expertise_bg: "#1e242c"
+  skill_bg: "#1e242c"
+
+# Scrollbar colors (dark theme inspired)
+scrollbar:
+  thumb: "#3a6b72"
+  thumb_hover: "#3a6b72"
+
+# Decorative section glows - Different colours for light and dark themes
+decorative_light:
+  # Multi-colour glow (About section)
+  glow_multi_1: "rgba(144, 238, 144, 0.12)"
+  glow_multi_2: "rgba(255, 250, 138, 0.12)"
+  glow_multi_3: "rgba(175, 238, 238, 0.12)"
+
+  # Single-colour orb (other sections)
+  glow_1: "rgba(144, 238, 144, 0.18)"
+  glow_2: "rgba(255, 250, 138, 0.18)"
+  glow_3: "rgba(175, 238, 238, 0.18)"
+
+decorative_dark:
+  # Multi-colour glow (About section)
+  glow_multi_1: "rgba(65, 209, 255, 0.08)"
+  glow_multi_2: "rgba(100, 108, 255, 0.08)"
+  glow_multi_3: "rgba(189, 52, 254, 0.08)"
+
+  # Single-colour orb (other sections)
+  glow_1: "rgba(65, 209, 255, 0.15)"
+  glow_2: "rgba(100, 108, 255, 0.15)"
+  glow_3: "rgba(189, 52, 254, 0.15)"
+
+# Logo gradients
+logo_gradients:
+  gradient_1: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+  gradient_2: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+  gradient_3: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+  gradient_4: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+  gradient_5: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+  gradient_6: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+  gradient_7: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+  gradient_8: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"

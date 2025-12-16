@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ PAGE_TITLE }}</title>
+    <meta name="description" content="{{ META_DESCRIPTION }}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="" id="canonical-url">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="" id="og-title">
+    <meta property="og:description" content="" id="og-description">
+    <meta property="og:image" content="" id="og-image">
+    <meta property="og:url" content="" id="og-url">
+
+    <!-- Twitter/X Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="" id="twitter-title">
+    <meta name="twitter:description" content="" id="twitter-description">
+    <meta name="twitter:image" content="" id="twitter-image">
+
+    {{ JSON_LD }}
+    <link rel="icon" type="image/x-icon" href="images/cv_icon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/cv-apple-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/cv_icon.png">
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #223a47;
+            --primary-hover: #314753;
+            --text-primary: #555;
+            --text-secondary: #777;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f6f6;
+            --bg-tertiary: #eee;
+            --border-color: rgba(24, 176, 162, 0.15);
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark {
+            --text-primary: #bbb;
+            --text-secondary: #888;
+            --bg-primary: #0e1015;
+            --bg-secondary: #191f27;
+            --bg-tertiary: #151923;
+            --border-color: rgba(24, 176, 162, 0.15);
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --decorative-glow-multi-1: rgba(65, 209, 255, 0.08);
+            --decorative-glow-multi-2: rgba(100, 108, 255, 0.08);
+            --decorative-glow-multi-3: rgba(189, 52, 254, 0.08);
+            --decorative-glow-1: rgba(65, 209, 255, 0.15);
+            --decorative-glow-2: rgba(100, 108, 255, 0.15);
+            --decorative-glow-3: rgba(189, 52, 254, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #313847;
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f4759;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.4;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        /* Section-specific background glows */
+        section {
+            position: relative;
+        }
+
+        /* Base properties for all section glows */
+        #about::before,
+        #experience::before,
+        #education::before,
+        #volunteer::before,
+        #contact::before {
+            content: '';
+            position: absolute;
+            filter: blur(150px);
+            opacity: 1;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Hero/About section glow - CENTERED, MULTI-COLORED (conic gradient) */
+        #about::before {
+            width: 800px;
+            height: 800px;
+            left: 50%;
+            top: -5%;
+            transform: translateX(-50%);
+            background-image: conic-gradient(from 180deg at 50% 50%,
+                var(--decorative-glow-multi-1) 0deg,
+                var(--decorative-glow-multi-2) 140deg,
+                var(--decorative-glow-multi-3) 220deg,
+                var(--decorative-glow-multi-1) 360deg
+            );
+            border-radius: 50%;
+        }
+
+        /* Experience section glow - RIGHT SIDE */
+        #experience::before {
+            width: 700px;
+            height: 700px;
+            right: -15%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, var(--decorative-glow-2) 0%, transparent 70%);
+        }
+
+        /* Education section glow - LEFT SIDE */
+        #education::before {
+            width: 700px;
+            height: 700px;
+            left: -15%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, var(--decorative-glow-3) 0%, transparent 70%);
+        }
+
+        /* Volunteer section glow - RIGHT SIDE */
+        #volunteer::before {
+            width: 700px;
+            height: 700px;
+            right: -15%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, var(--decorative-glow-1) 0%, transparent 70%);
+        }
+
+        /* Contact section glow - RIGHT SIDE */
+        #contact::before {
+            width: 700px;
+            height: 700px;
+            right: -15%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, var(--decorative-glow-3) 0%, transparent 70%);
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1002;
+            display: flex;
+            flex-direction: column;
+            width: 280px;
+            height: 100vh;
+            height: 100dvh;
+            padding: 2rem 0;
+            background-color: var(--bg-secondary);
+            box-shadow: var(--sidebar-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            transform: translateX(-100%);
+        }
+
+        .sidebar-header {
+            padding: 0 2rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-img {
+            display: block;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            background-color: var(--bg-tertiary);
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .nav-menu {
+            flex: 1;
+            padding: 2rem 0;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary-color);
+            background-color: var(--bg-tertiary);
+            border-left-color: var(--primary-color);
+        }
+
+        .nav-item i {
+            width: 24px;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle {
+            padding: 0 2rem;
+            margin-top: auto;
+        }
+
+        .theme-select-wrapper {
+            position: relative;
+        }
+
+        .theme-select-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .theme-select-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .theme-select-button i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .theme-select-button .fa-chevron-down {
+            font-size: 0.7rem;
+            margin-left: auto;
+        }
+
+        .theme-dropdown {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            display: none;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .theme-dropdown.show {
+            display: block;
+        }
+
+        .theme-option {
+            padding: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .theme-option:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .theme-option.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .theme-option i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1001;
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--card-shadow);
+        }
+
+        .mobile-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .mobile-header-profile-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            background-color: var(--bg-tertiary);
+        }
+
+        .mobile-header-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        .mobile-header-right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mobile-theme-toggle {
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-theme-dropdown {
+            position: fixed;
+            top: 60px;
+            right: 60px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: none;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            z-index: 1002;
+        }
+
+        .mobile-theme-dropdown.show {
+            display: block;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin-left: 280px;
+            padding: 3rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        .main-content.expanded {
+            margin-left: 0;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 1rem 0 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero .label {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .hero .location {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero .summary {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1.0rem;
+            line-height: 1.4;
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .hero .summary p {
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+
+        /* Base Card Styles */
+        .experience-card,
+        .education-card,
+        .volunteer-card,
+        .cert-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .card-header-content {
+            flex: 1;
+        }
+
+        .position {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        .company-name {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+        }
+
+        .date-range {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 80%;
+            margin-bottom: 0.25rem;
+        }
+
+        .location {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .card-summary {
+            margin: 1rem 0;
+            margin-left: calc(56px + 1rem);
+            margin-right: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .highlights {
+            margin: 1rem 0;
+            margin-left: calc(56px + 1rem);
+            margin-right: 1rem;
+        }
+
+        .highlights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlights li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .skills-tag {
+            margin-top: 1rem;
+            margin-left: calc(56px + 1rem);
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .skills-label {
+            font-weight: 400;
+            margin-right: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .skill-item {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--bg-tertiary);
+            border-radius: 16px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        /* Expertise & Skills Section */
+        .skills-section-container {
+            margin-bottom: 2rem;
+        }
+
+        .skills-section-label {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .expertise-item {
+            display: inline-block;
+            padding: 0.3rem 0.85rem;
+            background-color: var(--expertise-bg);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .technical-skill-item {
+            display: inline-block;
+            padding: 0.3rem 0.85rem;
+            background-color: var(--skill-bg);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Education Cards */
+        .courses {
+            margin-top: 1rem;
+            margin-left: calc(56px + 1rem);
+        }
+
+        .courses ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .courses li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .courses li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-issuer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .cert-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: var(--focus-ring);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .hero-greeting {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .hero-text {
+            text-align: left;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .hero-text p {
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .highlight-icon {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-top: 0.25rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .highlight-content h4 {
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .highlight-content p {
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .call-out {
+            margin: 1.5rem 0;
+            text-align: left;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .call-out.bold {
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            /* justify-content: center; */
+        }
+
+        .btn {
+            display: inline-block;
+            max-width: 300px;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-form-wrapper {
+            flex: 1;
+        }
+
+        .contact-info-wrapper {
+            flex: 1;
+            padding-left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: flex-start;
+            padding-top: 1rem;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.3rem;
+            background-color: var(--bg-tertiary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .contact-text p,
+        .contact-text a:not(.btn) {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .contact-text a:not(.btn):hover {
+            color: var(--primary-color);
+        }
+
+        /* License Footer */
+        .site-footer {
+            margin-top: 5rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .site-footer:hover {
+            opacity: 1; /* Full visibility on hover */
+        }
+
+        .site-footer a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-secondary);
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+        }
+
+        .site-footer a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .site-footer img {
+            vertical-align: middle;
+            margin-left: 4px;
+            opacity: 0.7;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info-wrapper {
+                margin-top: 2rem;
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+
+            .sidebar {
+                left: auto;
+                right: 0;
+                transform: translateX(100%);
+                height: 100dvh;
+                padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+            }
+
+            .sidebar-header {
+                padding-bottom: 1rem;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: calc(60px + 2rem) 1.5rem 2rem;
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            section {
+                scroll-margin-top: calc(60px + 2rem);
+            }
+
+            .hero-greeting {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .contact-form button[type="submit"] {
+                width: 100% !important;
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-summary,
+            .highlights,
+            .skills-tag,
+            .courses {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .skills-label::after {
+                content: '\A\A';
+                white-space: pre;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Mobile Header -->
+    <header class="mobile-header" id="mobileHeader">
+        <div class="mobile-header-left">
+            <img class="mobile-header-profile-img" id="mobileProfileImg" src="" alt="Profile Picture" onerror="this.style.display='none'">
+        </div>
+        <div class="mobile-header-center" id="mobileHeaderName">
+            Loading...
+        </div>
+        <div class="mobile-header-right">
+            <button class="mobile-theme-toggle" id="mobileThemeToggle">
+                <i class="fa-solid fa-adjust"></i>
+            </button>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-theme-dropdown" id="mobileThemeDropdown">
+            <div class="theme-option" data-theme="system">
+                <i class="fa-solid fa-adjust"></i>
+                <span>System</span>
+            </div>
+            <div class="theme-option" data-theme="light">
+                <i class="fa-regular fa-sun"></i>
+                <span>Light</span>
+            </div>
+            <div class="theme-option" data-theme="dark">
+                <i class="fa-regular fa-moon"></i>
+                <span>Dark</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img class="profile-img" id="profileImg" src="" alt="Profile Picture" onerror="this.style.display='none'">
+            <h2 class="profile-name" id="profileName">Loading...</h2>
+            <p class="profile-label" id="profileLabel">Loading...</p>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#about" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>About</span>
+            </a>
+            <a href="#experience" class="nav-item" id="nav-experience">
+                <i class="fas fa-briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#education" class="nav-item" id="nav-education">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Education</span>
+            </a>
+            <a href="#certifications" class="nav-item" id="nav-certifications">
+                <i class="fas fa-certificate"></i>
+                <span>Certifications</span>
+            </a>
+            <a href="#courses" class="nav-item" id="nav-courses">
+                <i class="fas fa-book"></i>
+                <span>Courses</span>
+            </a>
+            <a href="#volunteer" class="nav-item" id="nav-volunteer">
+                <i class="fas fa-hands-helping"></i>
+                <span>Volunteer</span>
+            </a>
+            <a href="#contact" class="nav-item">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+
+        <div class="theme-toggle">
+            <div class="theme-select-wrapper">
+                <div class="theme-select-button" id="themeSelectButton">
+                    <i class="fa-solid fa-adjust"></i>
+                    <span>System</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="theme-dropdown" id="themeDropdown">
+                    <div class="theme-option active" data-theme="system">
+                        <i class="fa-solid fa-adjust"></i>
+                        <span>System</span>
+                    </div>
+                    <div class="theme-option" data-theme="light">
+                        <i class="fa-regular fa-sun"></i>
+                        <span>Light</span>
+                    </div>
+                    <div class="theme-option" data-theme="dark">
+                        <i class="fa-regular fa-moon"></i>
+                        <span>Dark</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section id="about" class="hero">
+            <h2 class="section-title">About</h2>
+            <div class="hero-content">
+                <h3 class="hero-greeting" id="heroGreeting"></h3>
+                <div class="hero-text" id="heroText"></div>
+                <div class="highlight-list" id="heroHighlights"></div>
+                <p class="call-out" id="heroCallOut"></p>
+                <div class="hero-buttons" id="heroButtons"></div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div id="experienceList">
+                <!-- Experience cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div id="educationList">
+                <!-- Education cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid" id="certificationsList">
+                <!-- Certification cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses">
+            <h2 class="section-title">Courses</h2>
+            <div class="cert-grid" id="coursesList">
+                <!-- Course cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Volunteer Section -->
+        <section id="volunteer">
+            <h2 class="section-title">Volunteer Work</h2>
+            <div id="volunteerList">
+                <!-- Volunteer cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" id="access_key">
+                        <div class="form-group">
+                            <label for="name">First Name*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"
+                            style="width: auto; padding-left: 2rem; padding-right: 2rem; cursor: pointer;">Send
+                            Message</button>
+                    </form>
+                </div>
+                <div class="contact-info-wrapper" id="contactDetails">
+                    <!-- Contact details inserted here -->
+                </div>
+            </div>
+        </section>
+        <footer class="site-footer">
+            <p>
+                <a href="https://github.com/teolupus/professional-cv" target="_blank" rel="noopener">Professional CV</a> 
+                © 2025 by <a href="https://www.blissful.im" target="_blank" rel="noopener">Bruno Lago</a> 
+                is licensed under 
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+                <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="height:12px;">
+                <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style="height:12px;">
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // CV Data Placeholder - Will be replaced by build script
+        const cvData = {{ CV_DATA }};
+
+        // Google Analytics Setup
+        function setupGoogleAnalytics() {
+            const analyticsId = cvData.basics['analytics-id'];
+            if (!analyticsId || analyticsId.trim() === '') {
+                return; // No analytics ID provided
+            }
+
+            // Create and inject the Google Analytics script
+            const gtagScript = document.createElement('script');
+            gtagScript.async = true;
+            gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
+            document.head.appendChild(gtagScript);
+
+            // Create and inject the gtag configuration script
+            const configScript = document.createElement('script');
+            configScript.textContent = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${analyticsId}');
+            `;
+            document.head.appendChild(configScript);
+        }
+
+        // SEO Functions
+        function getAbsoluteUrl(path) {
+            if (!path) return '';
+            if (path.startsWith('http://') || path.startsWith('https://')) return path;
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+            return baseUrl + path;
+        }
+
+        function populateSEOTags() {
+            const { basics } = cvData;
+            const pageTitle = `${basics.name} - ${basics.label}`;
+            const description = basics.intro?.text?.split('\n\n')[0] || basics.label;
+            const imageUrl = getAbsoluteUrl(basics.image);
+            const pageUrl = basics.url || window.location.href;
+
+            // Canonical URL
+            document.getElementById('canonical-url').setAttribute('href', pageUrl);
+
+            // Open Graph Tags
+            document.getElementById('og-title').setAttribute('content', pageTitle);
+            document.getElementById('og-description').setAttribute('content', description);
+            document.getElementById('og-image').setAttribute('content', imageUrl);
+            document.getElementById('og-url').setAttribute('content', pageUrl);
+
+            // Twitter/X Tags
+            document.getElementById('twitter-title').setAttribute('content', pageTitle);
+            document.getElementById('twitter-description').setAttribute('content', description);
+            document.getElementById('twitter-image').setAttribute('content', imageUrl);
+        }
+
+        function generateSchema() {
+            const { basics, education, work, certifications, volunteer, courses } = cvData;
+
+            // 1. alumniOf: Maps Education
+            const alumniOf = education ? education.map(edu => ({
+                "@type": "EducationalOrganization",
+                "name": edu.institution
+            })) : [];
+
+            // 2. worksFor: Maps CURRENT jobs (where endDate is 'Present')
+            const currentJobs = work ? work.filter(job => job.endDate === "Present").map(job => ({
+                "@type": "Organization",
+                "name": job.name
+            })) : [];
+
+            // 3. hasCredential: Maps Certifications
+            const credentials = certifications ? certifications.map(cert => ({
+                "@type": "EducationalOccupationalCredential",
+                "name": cert.name,
+                "credentialCategory": "certificate",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": cert.issuer
+                }
+            })) : [];
+
+            // 4. memberOf: Maps Volunteer Organizations
+            const memberships = volunteer ? volunteer.map(vol => ({
+                "@type": "Organization",
+                "name": vol.organization
+            })) : [];
+
+            // 5. knowsAbout: Maps Skills and Expertise (in order of appearance)
+            const allSkills = [];
+            const seenSkills = new Set();
+
+            if (work) {
+                work.forEach(job => {
+                    if (job.expertise) {
+                        job.expertise.forEach(e => {
+                            if (!seenSkills.has(e)) {
+                                seenSkills.add(e);
+                                allSkills.push(e);
+                            }
+                        });
+                    }
+                    if (job.skills) {
+                        job.skills.forEach(s => {
+                            if (!seenSkills.has(s)) {
+                                seenSkills.add(s);
+                                allSkills.push(s);
+                            }
+                        });
+                    }
+                });
+            }
+
+            // 6. sameAs: Collect social media URLs from contact
+            const sameAs = [basics.url].filter(Boolean);
+            if (basics.contact) {
+                basics.contact.forEach(item => {
+                    if (item.social && item.link && item.link.trim() !== '') {
+                        sameAs.push(item.link);
+                    }
+                });
+            }
+
+            // Construct the Final Schema
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": basics.name,
+                "jobTitle": basics.label,
+                "url": basics.url,
+                "image": getAbsoluteUrl(basics.image),
+                "description": basics.intro?.text || basics.label,
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": basics.location?.city,
+                    "addressRegion": basics.location?.region,
+                    "addressCountry": basics.location?.country
+                },
+                "sameAs": sameAs,
+                "alumniOf": alumniOf,
+                "knowsAbout": allSkills
+            };
+
+            // Add optional fields only if they have data
+            if (currentJobs.length > 0) {
+                schema.worksFor = currentJobs.length === 1 ? currentJobs[0] : currentJobs;
+            }
+            if (credentials.length > 0) {
+                schema.hasCredential = credentials;
+            }
+            if (memberships.length > 0) {
+                schema.memberOf = memberships;
+            }
+
+            // Inject into head
+            const script = document.createElement('script');
+            script.type = "application/ld+json";
+            script.text = JSON.stringify(schema, null, 2);
+            document.head.appendChild(script);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            setupGoogleAnalytics();
+            populateSEOTags();
+            generateSchema();
+            initializeTheme();
+            loadProfileData();
+            loadExperience();
+            loadEducation();
+            loadVolunteer();
+            loadCertifications();
+            loadCourses();
+            setupNavigation();
+            setupMobileMenu();
+            setupContactForm();
+        });
+
+        // Theme Toggle
+        let currentTheme = 'system';
+
+        function initializeTheme() {
+            // Check if user has a saved preference, default to system
+            const savedTheme = localStorage.getItem('theme') || 'system';
+            currentTheme = savedTheme;
+
+            updateThemeUI(savedTheme);
+            applyTheme(savedTheme);
+
+            // Setup theme dropdown
+            setupThemeDropdown();
+
+            // Listen for system theme changes when in system mode
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (currentTheme === 'system') {
+                    applyTheme('system');
+                }
+            });
+        }
+
+        function applyTheme(theme) {
+            if (theme === 'system') {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.classList.toggle('dark', prefersDark);
+            } else {
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+            }
+        }
+
+        function updateThemeUI(theme) {
+            const button = document.getElementById('themeSelectButton');
+            const mobileButton = document.getElementById('mobileThemeToggle');
+            const options = document.querySelectorAll('.theme-option');
+
+            // Update active state on options
+            options.forEach(option => {
+                option.classList.toggle('active', option.dataset.theme === theme);
+            });
+
+            // Update button content
+            const activeOption = document.querySelector(`.theme-option[data-theme="${theme}"]`);
+            if (activeOption) {
+                const icon = activeOption.querySelector('i').className;
+                const text = activeOption.querySelector('span').textContent;
+                button.innerHTML = `<i class="${icon}"></i><span>${text}</span><i class="fa-solid fa-chevron-down"></i>`;
+                mobileButton.innerHTML = `<i class="${icon}"></i>`;
+            }
+        }
+
+        function setupThemeDropdown() {
+            const button = document.getElementById('themeSelectButton');
+            const dropdown = document.getElementById('themeDropdown');
+            const mobileButton = document.getElementById('mobileThemeToggle');
+            const mobileDropdown = document.getElementById('mobileThemeDropdown');
+            const options = document.querySelectorAll('.theme-option');
+
+            // Toggle sidebar dropdown
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+                mobileDropdown.classList.remove('show');
+            });
+
+            // Toggle mobile dropdown
+            mobileButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileDropdown.classList.toggle('show');
+                dropdown.classList.remove('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                dropdown.classList.remove('show');
+                mobileDropdown.classList.remove('show');
+            });
+
+            // Prevent dropdown from closing when clicking inside
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            mobileDropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Handle theme selection
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const selectedTheme = option.dataset.theme;
+                    currentTheme = selectedTheme;
+                    localStorage.setItem('theme', selectedTheme);
+                    applyTheme(selectedTheme);
+                    updateThemeUI(selectedTheme);
+                    dropdown.classList.remove('show');
+                    mobileDropdown.classList.remove('show');
+                });
+            });
+        }
+
+        // Mobile Menu
+        function setupMobileMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+
+            menuToggle.addEventListener('click', function () {
+                sidebar.classList.toggle('open');
+            });
+
+            // Close menu when clicking nav items on mobile
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            });
+
+            // Close menu when clicking outside on mobile
+            mainContent.addEventListener('click', function () {
+                if (window.innerWidth <= 768 && sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        }
+
+        // Navigation Active State
+        function setupNavigation() {
+            const navItems = document.querySelectorAll('.nav-item');
+
+            window.addEventListener('scroll', function () {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+
+                // Check if we're at the bottom of the page
+                const scrollPosition = window.innerHeight + window.pageYOffset;
+                const bottomThreshold = document.documentElement.scrollHeight - 100;
+
+                if (scrollPosition >= bottomThreshold) {
+                    // If at bottom, highlight the last section (Contact)
+                    current = 'contact';
+                } else {
+                    // Normal scroll behavior
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (pageYOffset >= sectionTop - 200) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+                }
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Load Profile Data
+        function loadProfileData() {
+            const { basics } = cvData;
+
+            // Sidebar Profile
+            document.getElementById('profileName').textContent = basics.name;
+            document.getElementById('profileLabel').textContent = basics.label;
+
+            const profileImg = document.getElementById('profileImg');
+            if (basics.image) {
+                profileImg.style.display = 'block';
+                profileImg.src = basics.image;
+            } else {
+                profileImg.style.display = 'none';
+            }
+
+            // Mobile Header
+            document.getElementById('mobileHeaderName').textContent = basics.name;
+            const mobileProfileImg = document.getElementById('mobileProfileImg');
+            if (basics.image) {
+                mobileProfileImg.style.display = 'block';
+                mobileProfileImg.src = basics.image;
+            } else {
+                mobileProfileImg.style.display = 'none';
+            }
+
+            // Hero / About Section
+            if (basics.intro) {
+                document.getElementById('heroGreeting').textContent = basics.intro.greeting;
+
+                // Format main text with line breaks
+                const textHtml = basics.intro.text
+                    .split(/\n\s*\n/)
+                    .map(text => `<p>${text.trim().replace(/\n/g, ' ')}</p>`)
+                    .join('');
+                document.getElementById('heroText').innerHTML = textHtml;
+
+                // Highlights
+                if (basics.intro.highlight_list) {
+                    const highlightsHtml = basics.intro.highlight_list.map(h => `
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-${h.icon}"></i>
+                            </div>
+                            <div class="highlight-content">
+                                <h4>${h.header}</h4>
+                                <p>${h.text}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                    document.getElementById('heroHighlights').innerHTML = highlightsHtml;
+                }
+
+                // Call Out
+                if (basics.intro.call_out) {
+                    const callOutEl = document.getElementById('heroCallOut');
+                    if (typeof basics.intro.call_out === 'object') {
+                        callOutEl.textContent = basics.intro.call_out.text;
+                        if (basics.intro.call_out.bold) {
+                            callOutEl.classList.add('bold');
+                        }
+                    } else {
+                        callOutEl.textContent = basics.intro.call_out;
+                    }
+                }
+
+                // Buttons
+                if (basics.intro.buttons) {
+                    const buttonsHtml = basics.intro.buttons.map(b => {
+                        if (!b.enabled) return '';
+                        const btnClass = b.style === 'primary' ? 'btn-primary' : 'btn-outline';
+                        return `<a href="${b.link}" class="btn ${btnClass}" target="${b.link.startsWith('#') ? '_self' : '_blank'}">${b.text}</a>`;
+                    }).join('');
+                    document.getElementById('heroButtons').innerHTML = buttonsHtml;
+                }
+            }
+
+            // Contact Details
+            if (basics.contact) {
+                const contactHtml = basics.contact.map(item => {
+                    let contentHtml = '';
+                    if (item.type === 'button') {
+                        contentHtml = `<a href="${item.link}" target="_blank" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.9rem; margin-top:0.2rem;">${item.content}</a>`;
+                    } else if (item.type === 'link') {
+                        contentHtml = `<a href="${item.link}" target="_blank">${item.content}</a>`;
+                    } else {
+                        contentHtml = `<p>${item.content}</p>`;
+                    }
+
+                    return `
+                    <div class="contact-detail-item">
+                        <div class="contact-icon"><i class="${item.icon}"></i></div>
+                        <div class="contact-text">
+                            <h4>${item.heading}</h4>
+                            ${contentHtml}
+                        </div>
+                    </div>`;
+                }).join('');
+                document.getElementById('contactDetails').innerHTML = contactHtml;
+            }
+        }
+
+        // Calculate duration between dates
+        function calculateDuration(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = endDate === 'Present' ? new Date() : new Date(endDate);
+
+            const months = (end.getFullYear() - start.getFullYear()) * 12 +
+                (end.getMonth() - start.getMonth());
+
+            const years = Math.floor(months / 12);
+            const remainingMonths = months % 12;
+
+            let duration = '';
+            if (years > 0) duration += `${years} yr${years > 1 ? 's' : ''}`;
+            if (remainingMonths > 0) {
+                if (duration) duration += ' ';
+                duration += `${remainingMonths} mo${remainingMonths > 1 ? 's' : ''}`;
+            }
+
+            return duration;
+        }
+
+        // Format date
+        function formatDate(dateStr) {
+            if (dateStr === 'Present') return 'Present';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+        }
+
+        // Get initials for logo
+        function getInitials(name) {
+            return name.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2);
+        }
+
+        // Generate random gradient
+        function getGradient(index) {
+            const gradients = [
+                'var(--logo-gradient-1)',
+                'var(--logo-gradient-2)',
+                'var(--logo-gradient-3)',
+                'var(--logo-gradient-4)',
+                'var(--logo-gradient-5)',
+                'var(--logo-gradient-6)',
+                'var(--logo-gradient-7)',
+                'var(--logo-gradient-8)'
+            ];
+            return gradients[index % gradients.length];
+        }
+
+        // Handle image load error
+        function handleImageError(img, logoText, gradient) {
+            const parent = img.parentElement;
+            parent.style.background = gradient;
+            parent.textContent = logoText;
+        }
+
+        // Load Experience
+        function loadExperience() {
+            const experienceList = document.getElementById('experienceList');
+            const { work } = cvData;
+
+            if (!work || work.length === 0) {
+                document.getElementById('experience').style.display = 'none';
+                document.getElementById('nav-experience').style.display = 'none';
+                return;
+            }
+
+            experienceList.innerHTML = work.map((job, index) => {
+                const duration = calculateDuration(job.startDate, job.endDate);
+                const logoText = job.logoText || getInitials(job.name);
+                const gradient = getGradient(index);
+
+                // Determine logo display
+                let logoHtml;
+                if (job.logo && job.logo.trim() !== '') {
+                    logoHtml = `<img src="${job.logo}" alt="${job.name} logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" onerror="handleImageError(this, '${logoText}', '${gradient}')">`;
+                } else {
+                    logoHtml = logoText;
+                }
+
+                return `
+                    <div class="experience-card">
+                        <div class="card-header">
+                            <div class="company-logo" style="background: ${job.logo && job.logo.trim() !== '' ? 'transparent' : gradient}">
+                                ${logoHtml}
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="position">${job.position}</h3>
+                                <p class="company-name">${job.name}</p>
+                                <p class="date-range">
+                                    ${formatDate(job.startDate)} - ${formatDate(job.endDate)} · ${duration}
+                                </p>
+                            </div>
+                        </div>
+                        ${job.summary ? `<p class="card-summary">${job.summary}</p>` : ''}
+                        ${job.highlights && job.highlights.length > 0 ? `
+                            <div class="highlights">
+                                <ul>
+                                    ${job.highlights.map(h => `<li>${h}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        ${(job.expertise && job.expertise.length > 0) || (job.skills && job.skills.length > 0) ? `
+                            <div class="skills-tag">
+                                <span class="skills-label">Expertise:</span>${job.expertise && job.expertise.length > 0 ? job.expertise.map(item => `<span class="expertise-item">${item}</span>`).join('') : ''}${job.skills && job.skills.length > 0 ? job.skills.map(skill => `<span class="technical-skill-item">${skill}</span>`).join('') : ''}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load Education
+        function loadEducation() {
+            const educationList = document.getElementById('educationList');
+            const { education } = cvData;
+
+            if (!education || education.length === 0) {
+                document.getElementById('education').style.display = 'none';
+                document.getElementById('nav-education').style.display = 'none';
+                return;
+            }
+
+            educationList.innerHTML = education.map((edu, index) => {
+                const logoText = edu.logoText || getInitials(edu.institution);
+                const gradient = getGradient(index + 3);
+                const duration = edu.startDate ? calculateDuration(edu.startDate, edu.endDate) : '';
+                const dateRange = edu.startDate
+                    ? `${formatDate(edu.startDate)} - ${formatDate(edu.endDate)}${duration ? ' · ' + duration : ''}`
+                    : formatDate(edu.endDate);
+
+                // Determine logo display
+                let logoHtml;
+                if (edu.logo && edu.logo.trim() !== '') {
+                    logoHtml = `<img src="${edu.logo}" alt="${edu.institution} logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" onerror="handleImageError(this, '${logoText}', '${gradient}')">`;
+                } else {
+                    logoHtml = logoText;
+                }
+
+                return `
+                    <div class="education-card">
+                        <div class="card-header">
+                            <div class="company-logo" style="background: ${edu.logo && edu.logo.trim() !== '' ? 'transparent' : gradient}">
+                                ${logoHtml}
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="position">${edu.certificate}</h3>
+                                <p class="company-name">${edu.institution}</p>
+                                <p class="date-range">${dateRange}</p>
+                            </div>
+                        </div>
+                        ${edu.courses && edu.courses.length > 0 ? `
+                            <div class="courses">
+                                <ul>
+                                    ${edu.courses.map(c => `<li>${c}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load Volunteer
+        function loadVolunteer() {
+            const volunteerList = document.getElementById('volunteerList');
+            const { volunteer } = cvData;
+
+            if (!volunteer || volunteer.length === 0) {
+                document.getElementById('volunteer').style.display = 'none';
+                document.getElementById('nav-volunteer').style.display = 'none';
+                return;
+            }
+
+            volunteerList.innerHTML = volunteer.map((vol, index) => {
+                const duration = calculateDuration(vol.startDate, vol.endDate);
+                const logoText = vol.logoText || getInitials(vol.organization);
+                const gradient = getGradient(index + 6);
+
+                // Determine logo display
+                let logoHtml;
+                if (vol.logo && vol.logo.trim() !== '') {
+                    logoHtml = `<img src="${vol.logo}" alt="${vol.organization} logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" onerror="handleImageError(this, '${logoText}', '${gradient}')">`;
+                } else {
+                    logoHtml = logoText;
+                }
+
+                return `
+                    <div class="volunteer-card">
+                        <div class="card-header">
+                            <div class="company-logo" style="background: ${vol.logo && vol.logo.trim() !== '' ? 'transparent' : gradient}">
+                                ${logoHtml}
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="position">${vol.position}</h3>
+                                <p class="company-name">${vol.organization}</p>
+                                <p class="date-range">
+                                    ${formatDate(vol.startDate)} - ${formatDate(vol.endDate)} · ${duration}
+                                </p>
+                            </div>
+                        </div>
+                        ${vol.summary ? `<p class="card-summary">${vol.summary}</p>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load Certifications
+        function loadCertifications() {
+            const certificationsList = document.getElementById('certificationsList');
+            const { certifications, work, education, volunteer } = cvData;
+
+            if (!certifications || certifications.length === 0) {
+                document.getElementById('certifications').style.display = 'none';
+                document.getElementById('nav-certifications').style.display = 'none';
+                return;
+            }
+
+            certificationsList.innerHTML = certifications.map((cert, index) => {
+                // Find associated company/organization
+                let associatedEntity = null;
+                if (cert.associatedWith) {
+                    // Search in work first
+                    associatedEntity = work.find(w => w.name === cert.associatedWith);
+                    // Then education
+                    if (!associatedEntity) {
+                        associatedEntity = education.find(e => e.institution === cert.associatedWith);
+                    }
+                    // Then volunteer
+                    if (!associatedEntity) {
+                        associatedEntity = volunteer.find(v => v.organization === cert.associatedWith);
+                    }
+                }
+
+                // Use cert's own values if specified, otherwise use associated entity's values
+                const logo = cert.logo !== undefined ? cert.logo : (associatedEntity?.logo || '');
+                const logoText = cert.logoText || (associatedEntity?.logoText || cert.issuer.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2));
+                const date = cert.date || (associatedEntity?.startDate || '');
+                const gradient = getGradient(index + 8);
+
+                // Determine logo display
+                let logoHtml;
+                if (logo && logo.trim() !== '') {
+                    logoHtml = `<img src="${logo}" alt="${cert.issuer} logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" onerror="handleImageError(this, '${logoText}', '${gradient}')">`;
+                } else {
+                    logoHtml = logoText;
+                }
+
+                return `
+                    <div class="cert-card">
+                        <div class="card-header">
+                            <div class="company-logo" style="background: ${logo && logo.trim() !== '' ? 'transparent' : gradient}">
+                                ${logoHtml}
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="cert-name">${cert.name}</h3>
+                                <p class="cert-issuer">${cert.issuer}</p>
+                                ${date ? `<p class="cert-date">${formatDate(date)}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Load Courses
+        function loadCourses() {
+            const coursesList = document.getElementById('coursesList');
+            const { courses, work, education, volunteer } = cvData;
+
+            if (!courses || courses.length === 0) {
+                document.getElementById('courses').style.display = 'none';
+                document.getElementById('nav-courses').style.display = 'none';
+                return;
+            }
+
+            coursesList.innerHTML = courses.map((course, index) => {
+                // Find associated company/organization
+                let associatedEntity = null;
+                if (course.associatedWith) {
+                    // Search in work first
+                    associatedEntity = work.find(w => w.name === course.associatedWith);
+                    // Then education
+                    if (!associatedEntity) {
+                        associatedEntity = education.find(e => e.institution === course.associatedWith);
+                    }
+                    // Then volunteer
+                    if (!associatedEntity) {
+                        associatedEntity = volunteer.find(v => v.organization === course.associatedWith);
+                    }
+                }
+
+                // Use course's own values if specified, otherwise use associated entity's values
+                const logo = course.logo !== undefined ? course.logo : (associatedEntity?.logo || '');
+                const logoText = course.logoText || (associatedEntity?.logoText || course.issuer.split(' ').map(word => word[0]).join('').toUpperCase().slice(0, 2));
+                const date = course.date || (associatedEntity?.startDate || '');
+                const gradient = getGradient(index + 10);
+
+                // Determine logo display
+                let logoHtml;
+                if (logo && logo.trim() !== '') {
+                    logoHtml = `<img src="${logo}" alt="${course.issuer} logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;" onerror="handleImageError(this, '${logoText}', '${gradient}')">`;
+                } else {
+                    logoHtml = logoText;
+                }
+
+                return `
+                    <div class="cert-card">
+                        <div class="card-header">
+                            <div class="company-logo" style="background: ${logo && logo.trim() !== '' ? 'transparent' : gradient}">
+                                ${logoHtml}
+                            </div>
+                            <div class="card-header-content">
+                                <h3 class="cert-name">${course.name}</h3>
+                                <p class="cert-issuer">${course.issuer}</p>
+                                ${date ? `<p class="cert-date">${formatDate(date)}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Contact Form
+        function setupContactForm() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            // Set the access key from cvData
+            if (cvData.basics['form-api-key']) {
+                document.getElementById('access_key').value = cvData.basics['form-api-key'];
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                const originalText = submitBtn.textContent;
+
+                submitBtn.textContent = "Sending...";
+                submitBtn.disabled = true;
+
+                try {
+                    const response = await fetch("https://api.web3forms.com/submit", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        alert("Success! Your message has been sent.");
+                        form.reset();
+                        // Re-set access key after reset
+                        if (cvData.basics['form-api-key']) {
+                            document.getElementById('access_key').value = cvData.basics['form-api-key'];
+                        }
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+
+                } catch (error) {
+                    alert("Something went wrong. Please try again.");
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

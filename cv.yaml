@@ -1,0 +1,212 @@
+basics:
+  name: "Riley Rhodes"
+  label: "Developer | Cloud Architect"
+  image: "images/profile.jpg"
+  url: "https://rileyrhodes-demo.com"
+  form-api-key: "YOUR-UUID-GOES-HERE"
+  analytics-id: "G-XXXXXXXXXX"
+  location:
+    city: "San Francisco"
+    country: "USA"
+    region: "North America"
+  
+  intro:
+    greeting: "Hello! I'm Riley"
+    text: "I am a passionate software engineer dedicated to building scalable cloud infrastructure and intelligent AI agents. I thrive in environments where clean code meets complex architectural challenges.\n\nWith a background in backend development and a recent pivot into Generative AI, I help companies modernize their tech stacks."
+    highlight_list:
+      - icon: "code"
+        header: "Engineering"
+        text: "Writing clean, efficient, and testable Python code. Specializing in FastAPI, Django, and asynchronous programming patterns."
+      - icon: "cloud"
+        header: "Cloud Native"
+        text: "Expert serverless infrastructure, container orchestration (e.g. Kubernetes), infrastructure as code."
+      - icon: "brain"
+        header: "AI & ML"
+        text: "Integrating LLMs into production applications. Experience with RAG pipelines, LangChain, and vector databases."
+    call_out:
+      text: "Looking for a cloud-native Python expert? Let's build something great."
+      bold: true
+    buttons:
+      - text: "View Projects"
+        link: "https://github.com/rileyrhodes-demo"
+        style: "primary"
+        enabled: true
+      - text: "Contact Me"
+        link: "#contact"
+        style: "outline"
+        enabled: true
+
+  contact:
+    - icon: "fas fa-map-marker-alt"
+      heading: "Location"
+      content: "San Francisco, California"
+      type: "text"
+    - icon: "fas fa-phone"
+      heading: "Phone"
+      content: "+1 (555) 012-3456"
+      link: "tel:+15550123456"
+      type: "link"
+    - icon: "fab fa-linkedin-in"
+      heading: "LinkedIn"
+      content: "Connect on LinkedIn"
+      link: "https://www.linkedin.com/in/riley-rhodes-demo/"
+      type: "link"
+      social: true
+    - icon: "fab fa-x-twitter"
+      heading: "X (Twitter)"
+      content: "Follow Me"
+      link: "https://x.com/rileycodes_demo"
+      type: "link"
+      social: true
+    # Social media entries - only displayed if link is provided
+    # Uncomment and add links to enable
+    # - icon: "fab fa-facebook-f"
+    #   heading: "Facebook"
+    #   content: "View Profile"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-youtube"
+    #   heading: "YouTube"
+    #   content: "View Channel"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-instagram"
+    #   heading: "Instagram"
+    #   content: "View Profile"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-tiktok"
+    #   heading: "TikTok"
+    #   content: "View Profile"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-x-twitter"
+    #   heading: "X (Twitter)"
+    #   content: "View Profile"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-whatsapp"
+    #   heading: "WhatsApp"
+    #   content: "Message Me"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-signal-messenger"
+    #   heading: "Signal"
+    #   content: "Message Me"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-telegram"
+    #   heading: "Telegram"
+    #   content: "Message Me"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+    # - icon: "fab fa-facebook-messenger"
+    #   heading: "Messenger"
+    #   content: "Message Me"
+    #   link: ""
+    #   type: "link"
+    #   social: true
+
+work:
+  - name: "Nebula AI Solutions"
+    position: "Senior Python Engineer"
+    startDate: "2023-01"
+    endDate: "Present"
+    logo: "images/blissful_living_logo.png"
+    logoText: "NA"
+    summary: "Leading the backend team in developing autonomous AI agents for enterprise data analysis."
+    highlights:
+      - "Architected a RAG (Retrieval-Augmented Generation) pipeline using LangChain and Pinecone, reducing data retrieval latency by 40%."
+      - "Mentored 3 junior developers in Python best practices and TDD (Test Driven Development)."
+      - "Implemented a microservices architecture using FastAPI and gRPC to decouple legacy monolithic systems."
+    expertise:
+      - "Generative AI"
+      - "System Design"
+    skills:
+      - "Python"
+      - "FastAPI"
+      - "OpenAI API"
+
+  - name: "Summit Tech Dynamics"
+    position: "Cloud DevOps Engineer"
+    startDate: "2020-03"
+    endDate: "2022-12"
+    logo: ""
+    logoText: "ST"
+    summary: "Managed cloud infrastructure and CI/CD pipelines for a high-traffic e-commerce platform."
+    highlights:
+      - "Migrated on-premise workloads to AWS, resulting in a 99.99% uptime and 30% cost reduction."
+      - "Built robust CI/CD pipelines using GitHub Actions and Terraform to automate infrastructure provisioning."
+      - "Optimized Docker container sizes, reducing deployment times from 15 minutes to 3 minutes."
+    expertise:
+      - "DevOps"
+      - "Infrastructure as Code"
+    skills:
+      - "Terraform"
+      - "Docker"
+      - "Kubernetes"
+      - "PostgreSQL"
+
+  - name: "Echo Systems"
+    position: "Junior Software Developer"
+    startDate: "2018-06"
+    endDate: "2020-02"
+    logo: ""
+    logoText: "ES"
+    summary: "Full-stack development for internal tooling and customer-facing dashboards."
+    highlights:
+      - "Developed and maintained internal APIs using Flask and SQLAlchemy."
+      - "Collaborated with frontend teams to integrate Vue.js components with Python backends."
+      - "Participated in daily stand-ups and sprint planning in an Agile environment."
+    skills:
+      - "Python"
+      - "Flask"
+      - "JavaScript"
+      - "Git"
+
+education:
+  - institution: "University of the Rockies"
+    certificate: "Computer Science (BSc)"
+    startDate: "2014"
+    endDate: "2018"
+    studyType: "BS"
+    logo: ""
+    logoText: "UR"
+    courses:
+      - "Major in Artificial Intelligence"
+      - "Minor in Mathematics"
+
+volunteer:
+  - organization: "Peak Performance Snow School"
+    position: "Snowboard Instructor"
+    startDate: "2019-11"
+    endDate: "Present"
+    logo: ""
+    logoText: "PP"
+    summary: "Teaching snowboarding fundamentals to children and adults during the winter season."
+    highlights:
+      - "Certified Level 1 Instructor focused on safety and progression."
+      - "Organize annual charity 'Shred for Good' events raising funds for local youth programs."
+
+certifications:
+  - name: "Certified Kubernetes Administrator"
+    date: "2023-05"
+    issuer: "Cloud Native Foundation"
+    associatedWith: "Nebula AI Solutions"
+  - name: "DeepLearning.AI Generative AI Specialization"
+    date: "2024-01"
+    issuer: "DeepLearning.AI"
+    logo: ""
+    logoText: "DL"
+  - name: "PCAP – Certified Associate in Python"
+    date: "2019-08"
+    issuer: "Python Institute"
+    associatedWith: "Echo Systems"
