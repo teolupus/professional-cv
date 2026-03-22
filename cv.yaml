@@ -23,12 +23,15 @@ basics:
       - icon: "brain"
         header: "AI & ML"
         text: "Integrating LLMs into production applications. Experience with RAG pipelines, LangChain, and vector databases."
+    teaser_quote:
+      text: "This is a dummy teaser quote that highlights a key achievement or professional quality."
+      author: "Jane Doe, CEO at Tech Solutions"
     call_out:
       text: "Looking for a cloud-native Python expert? Let's build something great."
       bold: true
     buttons:
       - text: "View Projects"
-        link: "https://github.com/rileyrhodes-demo"
+        link: "https://github.com/rileycodes_demo"
         style: "primary"
         enabled: true
       - text: "Contact Me"
@@ -210,3 +213,27 @@ certifications:
     date: "2019-08"
     issuer: "Python Institute"
     associatedWith: "Echo Systems"
+
+testimonials:
+  - name: "Alex Smith"
+    company: "Example Corp"
+    role: "Engineering Manager"
+    image: ""
+    quote_highlight: "Riley is an exceptional engineer who consistently delivers high-quality code and innovative solutions."
+    summary: "Alex Smith has worked with Riley on multiple high-impact projects, noting their expertise in cloud architecture and backend development."
+    full_text: |
+      Riley is one of the most talented engineers I've had the pleasure of working with. During our time at Example Corp, Riley led several critical infrastructure migrations that resulted in significant performance improvements and cost savings. 
+
+      What sets Riley apart is not just their technical depth, but also their ability to communicate complex ideas to stakeholders at all levels. They are a natural leader who mentors junior developers and fosters a culture of excellence.
+
+  - name: "Jordan Lee"
+    company: "Startup Hub"
+    role: "Founder & CEO"
+    context: "Mentorship and technical strategy during the early growth phase."
+    image: ""
+    quote_highlight: "A true strategist who understands the balance between technical excellence and business goals."
+    summary: "Jordan highlights Riley's ability to bridge the gap between engineering and business, providing actionable insights that drove growth."
+    full_text: |
+      Working with Riley was a game-changer for our startup. Riley provided the technical vision we needed to scale from a small MVP to a robust platform. 
+
+      Beyond the code, Riley's strategic advice on hiring and team structure was invaluable. They understand how to build not just software, but a sustainable engineering organization. I highly recommend Riley to any founder looking for a world-class technical partner.

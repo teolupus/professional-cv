@@ -155,12 +155,21 @@
             top: -5%;
             transform: translateX(-50%);
             background-image: conic-gradient(from 180deg at 50% 50%,
-                var(--decorative-glow-multi-1) 0deg,
-                var(--decorative-glow-multi-2) 140deg,
-                var(--decorative-glow-multi-3) 220deg,
-                var(--decorative-glow-multi-1) 360deg
-            );
+                    var(--decorative-glow-multi-1) 0deg,
+                    var(--decorative-glow-multi-2) 140deg,
+                    var(--decorative-glow-multi-3) 220deg,
+                    var(--decorative-glow-multi-1) 360deg);
             border-radius: 50%;
+        }
+
+        /* Testimonials section glow - LEFT SIDE */
+        #testimonials::before {
+            width: 700px;
+            height: 700px;
+            left: -15%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, var(--decorative-glow-1) 0%, transparent 70%);
         }
 
         /* Experience section glow - RIGHT SIDE */
@@ -893,6 +902,273 @@
             /* justify-content: center; */
         }
 
+        /* Teaser Quote */
+        .teaser-quote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            border-left: 4px solid var(--primary-color);
+            background-color: var(--bg-secondary);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .teaser-quote p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem !important;
+        }
+
+        .teaser-quote cite {
+            display: block;
+            font-size: 0.85rem;
+            font-style: normal;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        /* Testimonials Carousel */
+        .testimonials {
+            background-color: var(--bg-secondary);
+            padding: 4rem 1.5rem;
+            margin-bottom: 4rem;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 1rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .testimonial-hook {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+
+        .testimonial-hook::before {
+            content: '“';
+            /* color: var(--primary-color);
+            opacity: 0.5; */
+        }
+
+        .testimonial-hook::after {
+            content: '”';
+            /* color: var(--primary-color);
+            opacity: 0.5; */
+        }
+
+        .testimonial-summary {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .btn-read-more {
+            align-self: flex-start;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .btn-read-more:hover {
+            text-decoration: underline;
+        }
+
+        .testimonial-author {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.1rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .context-tag {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Modal / Dialog */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            max-width: 800px;
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 16px;
+            position: relative;
+            padding: 3rem;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .modal-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-author {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .btn {
             display: inline-block;
             max-width: 300px;
@@ -992,7 +1268,8 @@
         }
 
         .site-footer:hover {
-            opacity: 1; /* Full visibility on hover */
+            opacity: 1;
+            /* Full visibility on hover */
         }
 
         .site-footer a {
@@ -1122,7 +1399,8 @@
     <!-- Mobile Header -->
     <header class="mobile-header" id="mobileHeader">
         <div class="mobile-header-left">
-            <img class="mobile-header-profile-img" id="mobileProfileImg" src="" alt="Profile Picture" onerror="this.style.display='none'">
+            <img class="mobile-header-profile-img" id="mobileProfileImg" src="" alt="Profile Picture"
+                onerror="this.style.display='none'">
         </div>
         <div class="mobile-header-center" id="mobileHeaderName">
             Loading...
@@ -1167,6 +1445,10 @@
             <a href="#experience" class="nav-item" id="nav-experience">
                 <i class="fas fa-briefcase"></i>
                 <span>Experience</span>
+            </a>
+            <a href="#testimonials" class="nav-item" id="nav-testimonials">
+                <i class="fas fa-quote-right"></i>
+                <span>Testimonials</span>
             </a>
             <a href="#education" class="nav-item" id="nav-education">
                 <i class="fas fa-graduation-cap"></i>
@@ -1224,6 +1506,7 @@
                 <h3 class="hero-greeting" id="heroGreeting"></h3>
                 <div class="hero-text" id="heroText"></div>
                 <div class="highlight-list" id="heroHighlights"></div>
+                <div id="heroTeaserContainer"></div>
                 <p class="call-out" id="heroCallOut"></p>
                 <div class="hero-buttons" id="heroButtons"></div>
             </div>
@@ -1234,6 +1517,27 @@
             <h2 class="section-title">Experience</h2>
             <div id="experienceList">
                 <!-- Experience cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonials">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="testimonialTrack">
+                        <!-- Testimonial slides will be inserted here -->
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -1300,15 +1604,28 @@
         </section>
         <footer class="site-footer">
             <p>
-                <a href="https://github.com/teolupus/professional-cv" target="_blank" rel="noopener">Professional CV</a> 
-                © 2025 by <a href="https://www.blissful.im" target="_blank" rel="noopener">Bruno Lago</a> 
-                is licensed under 
+                <a href="https://github.com/teolupus/professional-cv" target="_blank" rel="noopener">Professional CV</a>
+                © 2025 by <a href="https://www.blissful.im" target="_blank" rel="noopener">Bruno Lago</a>
+                is licensed under
                 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
                 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style="height:12px;">
                 <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style="height:12px;">
             </p>
         </footer>
     </main>
+
+    <!-- Testimonial Modal -->
+    <div class="modal" id="testimonialModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div class="modal-author" id="modalAuthor">
+                <!-- Author info will be inserted here -->
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Full text will be inserted here -->
+            </div>
+        </div>
+    </div>
 
     <script>
         const cvData = {
@@ -1344,6 +1661,10 @@
           "text": "Integrating LLMs into production applications. Experience with RAG pipelines, LangChain, and vector databases."
         }
       ],
+      "teaser_quote": {
+        "text": "This is a dummy teaser quote that highlights a key achievement or professional quality.",
+        "author": "Jane Doe, CEO at Tech Solutions"
+      },
       "call_out": {
         "text": "Looking for a cloud-native Python expert? Let's build something great.",
         "bold": true
@@ -1351,7 +1672,7 @@
       "buttons": [
         {
           "text": "View Projects",
-          "link": "https://github.com/rileyrhodes-demo",
+          "link": "https://github.com/rileycodes_demo",
           "style": "primary",
           "enabled": true
         },
@@ -1513,6 +1834,27 @@
       "date": "2019-08",
       "issuer": "Python Institute",
       "associatedWith": "Echo Systems"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Alex Smith",
+      "company": "Example Corp",
+      "role": "Engineering Manager",
+      "image": "",
+      "quote_highlight": "Riley is an exceptional engineer who consistently delivers high-quality code and innovative solutions.",
+      "summary": "Alex Smith has worked with Riley on multiple high-impact projects, noting their expertise in cloud architecture and backend development.",
+      "full_text": "Riley is one of the most talented engineers I've had the pleasure of working with. During our time at Example Corp, Riley led several critical infrastructure migrations that resulted in significant performance improvements and cost savings. \n\nWhat sets Riley apart is not just their technical depth, but also their ability to communicate complex ideas to stakeholders at all levels. They are a natural leader who mentors junior developers and fosters a culture of excellence.\n"
+    },
+    {
+      "name": "Jordan Lee",
+      "company": "Startup Hub",
+      "role": "Founder & CEO",
+      "context": "Mentorship and technical strategy during the early growth phase.",
+      "image": "",
+      "quote_highlight": "A true strategist who understands the balance between technical excellence and business goals.",
+      "summary": "Jordan highlights Riley's ability to bridge the gap between engineering and business, providing actionable insights that drove growth.",
+      "full_text": "Working with Riley was a game-changer for our startup. Riley provided the technical vision we needed to scale from a small MVP to a robust platform. \n\nBeyond the code, Riley's strategic advice on hiring and team structure was invaluable. They understand how to build not just software, but a sustainable engineering organization. I highly recommend Riley to any founder looking for a world-class technical partner."
     }
   ]
 };
@@ -1684,6 +2026,7 @@
             initializeTheme();
             loadProfileData();
             loadExperience();
+            loadTestimonials();
             loadEducation();
             loadVolunteer();
             loadCertifications();
@@ -1691,6 +2034,7 @@
             setupNavigation();
             setupMobileMenu();
             setupContactForm();
+            setupTestimonialModal();
         });
 
         // Theme Toggle
@@ -1908,6 +2252,17 @@
                     document.getElementById('heroHighlights').innerHTML = highlightsHtml;
                 }
 
+                // Teaser Quote
+                if (basics.intro.teaser_quote) {
+                    const teaser = basics.intro.teaser_quote;
+                    document.getElementById('heroTeaserContainer').innerHTML = `
+                        <div class="teaser-quote">
+                            <p>"${teaser.text}"</p>
+                            <cite>— ${teaser.author}</cite>
+                        </div>
+                    `;
+                }
+
                 // Call Out
                 if (basics.intro.call_out) {
                     const callOutEl = document.getElementById('heroCallOut');
@@ -2066,6 +2421,130 @@
                     </div>
                 `;
             }).join('');
+        }
+
+        // Testimonials Carousel Logic
+        let currentSlide = 0;
+        let totalSlides = 0;
+
+        function updateCarousel() {
+            const track = document.getElementById('testimonialTrack');
+            const dots = document.querySelectorAll('.dot');
+
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        // Load Testimonials
+        function loadTestimonials() {
+            const track = document.getElementById('testimonialTrack');
+            const dotsContainer = document.getElementById('carouselDots');
+            const { testimonials } = cvData;
+
+            if (!testimonials || testimonials.length === 0) {
+                document.getElementById('testimonials').style.display = 'none';
+                document.getElementById('nav-testimonials').style.display = 'none';
+                return;
+            }
+
+            totalSlides = testimonials.length;
+
+            // Render Slides
+            track.innerHTML = testimonials.map((t, index) => {
+                const initials = t.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+                const gradient = getGradient(index + 12);
+
+                let imageHtml;
+                if (t.image && t.image.trim() !== '') {
+                    imageHtml = `<img src="${t.image}" alt="${t.name}" class="author-img" onerror="handleImageError(this, '${initials}', '${gradient}')">`;
+                } else {
+                    imageHtml = `<div class="author-img" style="background: ${gradient}">${initials}</div>`;
+                }
+
+                return `
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-hook">${t.quote_highlight}</div>
+                            <div class="testimonial-summary">${t.summary}</div>
+                            ${t.full_text ? `<button class="btn-read-more" onclick="openTestimonialModal(${index})">Read Full Reference <i class="fas fa-arrow-right"></i></button>` : ''}
+                            <div class="testimonial-author">
+                                ${imageHtml}
+                                <div class="author-info">
+                                    <h4>${t.name}</h4>
+                                    <p>${t.role}${t.company ? ' at ' + t.company : ''}</p>
+                                    ${t.context ? `<div class="context-tag">${t.context}</div>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Render Dots
+            dotsContainer.innerHTML = testimonials.map((_, index) => `
+                <div class="dot ${index === 0 ? 'active' : ''}" onclick="setSlide(${index})"></div>
+            `).join('');
+
+            // Setup Navigation Buttons
+            document.getElementById('prevBtn').onclick = () => moveSlide(-1);
+            document.getElementById('nextBtn').onclick = () => moveSlide(1);
+        }
+
+        // Modal Logic
+        function setupTestimonialModal() {
+            const modal = document.getElementById('testimonialModal');
+            const closeBtn = document.getElementById('modalClose');
+
+            closeBtn.onclick = () => modal.classList.remove('show');
+
+            window.onclick = (event) => {
+                if (event.target === modal) {
+                    modal.classList.remove('show');
+                }
+            };
+        }
+
+        function openTestimonialModal(index) {
+            const modal = document.getElementById('testimonialModal');
+            const body = document.getElementById('modalBody');
+            const author = document.getElementById('modalAuthor');
+            const t = cvData.testimonials[index];
+
+            const initials = t.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+            const gradient = getGradient(index + 12);
+
+            let imageHtml;
+            if (t.image && t.image.trim() !== '') {
+                imageHtml = `<img src="${t.image}" alt="${t.name}" class="author-img" onerror="handleImageError(this, '${initials}', '${gradient}')">`;
+            } else {
+                imageHtml = `<div class="author-img" style="background: ${gradient}">${initials}</div>`;
+            }
+
+            author.innerHTML = `
+                ${imageHtml}
+                <div class="author-info">
+                    <h4>${t.name}</h4>
+                    <p>${t.role}${t.company ? ' at ' + t.company : ''}</p>
+                    ${t.context ? `<div class="context-tag">${t.context}</div>` : ''}
+                </div>
+            `;
+
+            body.innerHTML = t.full_text.split('\n\n').map(p => `<p>${p.trim()}</p>`).join('');
+
+            modal.classList.add('show');
         }
 
         // Load Education
