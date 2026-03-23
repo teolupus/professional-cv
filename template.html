@@ -547,7 +547,8 @@
         .experience-card,
         .education-card,
         .volunteer-card,
-        .cert-card {
+        .cert-card,
+        .testimonial-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -903,51 +904,57 @@
         }
 
         /* Testimonials Carousel */
-        .testimonials {
-            background-color: var(--bg-secondary);
-            padding: 4rem 1.5rem;
-            margin-bottom: 4rem;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
 
         .carousel-container {
             position: relative;
-            max-width: 900px;
             margin: 0 auto;
             overflow: hidden;
+            padding-bottom: 1.5rem;
+            /* Space for card shadow */
+            transition: height 0.3s ease;
         }
 
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            align-items: flex-start;
         }
 
         .testimonial-slide {
             flex: 0 0 100%;
-            padding: 1rem;
+            padding: 0;
         }
 
         .testimonial-card {
-            background-color: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--card-shadow);
-            height: 100%;
+            margin-bottom: 0;
+            /* Remove base card margin inside carousel */
+            height: auto;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                /* Same padding as base cards on mobile if needed,
+                   but base cards use 1.5rem which matches mobile testimonial-card already */
+                padding: 1.5rem;
+            }
         }
 
         .testimonial-hook {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-primary);
             line-height: 1.4;
             position: relative;
             padding-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-hook {
+                font-size: 1rem;
+            }
         }
 
         .testimonial-hook::before {
@@ -1035,8 +1042,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .carousel-btn {
@@ -1415,13 +1422,13 @@
                 <i class="fas fa-user"></i>
                 <span>About</span>
             </a>
-            <a href="#experience" class="nav-item" id="nav-experience">
-                <i class="fas fa-briefcase"></i>
-                <span>Experience</span>
-            </a>
             <a href="#testimonials" class="nav-item" id="nav-testimonials">
                 <i class="fas fa-quote-right"></i>
                 <span>Testimonials</span>
+            </a>
+            <a href="#experience" class="nav-item" id="nav-experience">
+                <i class="fas fa-briefcase"></i>
+                <span>Experience</span>
             </a>
             <a href="#education" class="nav-item" id="nav-education">
                 <i class="fas fa-graduation-cap"></i>
@@ -1485,32 +1492,30 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dots" id="carouselDots"></div>
+                <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track" id="testimonialTrack">
+                    <!-- Testimonial slides will be inserted here -->
+                </div>
+            </div>
+        </section>
+
         <!-- Experience Section -->
         <section id="experience">
             <h2 class="section-title">Experience</h2>
             <div id="experienceList">
                 <!-- Experience cards will be inserted here -->
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials">
-            <h2 class="section-title">Testimonials</h2>
-            <div class="testimonials">
-                <div class="carousel-container">
-                    <div class="carousel-track" id="testimonialTrack">
-                        <!-- Testimonial slides will be inserted here -->
-                    </div>
-                </div>
-                <div class="carousel-controls">
-                    <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonial">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="carousel-dots" id="carouselDots"></div>
-                    <button class="carousel-btn" id="nextBtn" aria-label="Next testimonial">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
             </div>
         </section>
 
@@ -2175,12 +2180,22 @@
         function updateCarousel() {
             const track = document.getElementById('testimonialTrack');
             const dots = document.querySelectorAll('.dot');
+            const container = document.querySelector('.carousel-container');
+            const slides = document.querySelectorAll('.testimonial-slide');
 
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
+
+            // Adjust container height to active slide
+            if (slides[currentSlide]) {
+                // Use requestAnimationFrame to ensure layout is updated
+                requestAnimationFrame(() => {
+                    container.style.height = slides[currentSlide].offsetHeight + 'px';
+                });
+            }
         }
 
         function moveSlide(direction) {
@@ -2246,6 +2261,12 @@
             // Setup Navigation Buttons
             document.getElementById('prevBtn').onclick = () => moveSlide(-1);
             document.getElementById('nextBtn').onclick = () => moveSlide(1);
+
+            // Initial height adjustment
+            setTimeout(updateCarousel, 300);
+
+            // Adjust on window resize
+            window.addEventListener('resize', updateCarousel);
         }
 
         // Modal Logic
